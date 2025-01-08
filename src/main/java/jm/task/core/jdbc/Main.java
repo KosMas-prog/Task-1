@@ -14,12 +14,10 @@ package jm.task.core.jdbc;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.util.Util;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 public class Main {
+    // реализуйте алгоритм
+
     public static void main(String[] args){
-        // реализуйте алгоритм
         Util.getConnection();
         UserDaoJDBCImpl dao = new UserDaoJDBCImpl();
         dao.createUsersTable();
@@ -28,8 +26,8 @@ public class Main {
         dao.saveUser("Sidor", "Sidorov", (byte) 22);
         dao.saveUser("Vasya", "Vasiliev", (byte) 23);
         dao.getAllUsers();
-        //dao.cleanUsersTable();
-        //dao.dropUsersTable();
+        dao.cleanUsersTable();
+        dao.dropUsersTable();
         Util.closeConnection(Util.getConnection());
     }
 }
