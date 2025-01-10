@@ -7,6 +7,9 @@ import org.hibernate.sql.Update;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 
 public class UserDaoJDBCImpl implements UserDao {
     private Connection connection;
@@ -44,9 +47,10 @@ public class UserDaoJDBCImpl implements UserDao {
             pstmt.setString(2, lastName);
             pstmt.setByte(3, age);
             pstmt.executeUpdate();
-            System.out.println("User с именем - " + name + " добавлен в базу данных");
+            log.info("User с именем - {}} добавлен в базу данных", name);
         } catch (SQLException e) {
             e.printStackTrace();
+            log.error("Ошибка при добавлении пользователя в базу данных: {}", e.getMessage());
         }
     }
 
