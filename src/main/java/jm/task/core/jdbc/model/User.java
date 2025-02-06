@@ -19,7 +19,7 @@ public class User {
     @Column(name = "lastname")
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "age")
     private Short age;
 
     public User() {
