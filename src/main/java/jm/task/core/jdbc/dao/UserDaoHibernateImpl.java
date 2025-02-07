@@ -1,12 +1,20 @@
 package jm.task.core.jdbc.dao;
+
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.List;
+import org.hibernate.cfg.Configuration;
+
 
 public class UserDaoHibernateImpl implements UserDao {
+
+    private Configuration configuration;
+
+    public UserDaoHibernateImpl() {
+        configuration = new Configuration().configure("application.properties");
+    }
 
     @Override
     public void createUsersTable() {
@@ -40,8 +48,6 @@ public class UserDaoHibernateImpl implements UserDao {
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void saveUser(String name, String lastName, byte age) {

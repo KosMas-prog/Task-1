@@ -53,7 +53,6 @@ public class Util {
             try {
                 log.info("Создание SessionFactory...");
                 Configuration configuration = new Configuration();
-
                 // Настройки Hibernate
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, properties.getProperty("hibernate.connection.driver_class"));
@@ -64,14 +63,11 @@ public class Util {
                 settings.put(Environment.SHOW_SQL, properties.getProperty("hibernate.show_sql"));
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, properties.getProperty("hibernate.current_session_context_class"));
                 settings.put(Environment.HBM2DDL_AUTO, properties.getProperty("hibernate.hbm2ddl.auto"));
-
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(User.class); // Регистрируем сущность User
-
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties())
                         .build();
-
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
                 log.info("SessionFactory успешно создан");
             } catch (Exception e) {
@@ -81,7 +77,6 @@ public class Util {
         }
         return sessionFactory;
     }
-
     // Получение SessionFactory для Hibernate
 //    public static SessionFactory getSessionFactory() {
 //        log.info("Create SessionFactory");
@@ -109,13 +104,11 @@ public class Util {
 //        }
 //        return sessionFactory;
 //    }
-
     public static void closeSessionFactory() {
         if (sessionFactory != null && !sessionFactory.isClosed()) {
             sessionFactory.close();
         }
     }
-
     public  static void closeConnection() {
         try {
             if (DriverManager.getConnection(properties.getProperty("jdbc.url"),
@@ -129,7 +122,6 @@ public class Util {
             throw new RuntimeException("Error closed Connection", e);
         }
     }
-
     // Получение SQL-запроса из application.properties
     public static String getQuery(String key) {
         return properties.getProperty(key);
