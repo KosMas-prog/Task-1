@@ -12,11 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 
 public class UserDaoJDBCImpl implements UserDao {
-    private Connection connection;
+    private Connection connection = null;
 
-//    public UserDaoJDBCImpl() {
-//        this.connection = Util.getConnection();
-//    }
+    public UserDaoJDBCImpl() {
+        this.connection = Util.getConnection();
+    }
 
     public void createUsersTable() {
         String sql = "CREATE TABLE IF NOT EXISTS users " +

@@ -31,9 +31,9 @@ public class Main {
         hibernateDao.saveUser("Sidor", "Sidorov", (byte) 22);
         hibernateDao.saveUser("Vasya", "Vasiliev", (byte) 23);
         hibernateDao.getAllUsers();
-//        hibernateDao.cleanUsersTable();
-//        hibernateDao.dropUsersTable();
-//        Util.closeSessionFactory();
+        hibernateDao.cleanUsersTable();
+        hibernateDao.dropUsersTable();
+        Util.closeSessionFactory();
     }
 }
 

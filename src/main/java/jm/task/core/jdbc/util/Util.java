@@ -77,33 +77,7 @@ public class Util {
         }
         return sessionFactory;
     }
-    // Получение SessionFactory для Hibernate
-//    public static SessionFactory getSessionFactory() {
-//        log.info("Create SessionFactory");
-//        if (sessionFactory == null) {
-//            try {
-//                Configuration configuration = new Configuration();
-//
-////                // Загрузка свойств
-////                properties.load(Util.class.getClassLoader().getResourceAsStream("application.properties"));
-////
-////                // Настройка свойств Hibernate
-////                properties.forEach((key, value) -> configuration.setProperty(key.toString(), value.toString()));
-////
-////                // Добавление аннотированных классов
-////                configuration.addAnnotatedClass(User.class);
-////
-////                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-////                        .applySettings(configuration.getProperties()).build();
-////
-////                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                throw new RuntimeException("Error creating SessionFactory", e);
-//            }
-//        }
-//        return sessionFactory;
-//    }
+
     public static void closeSessionFactory() {
         if (sessionFactory != null && !sessionFactory.isClosed()) {
             sessionFactory.close();

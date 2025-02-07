@@ -26,9 +26,9 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
             System.out.println("Таблица users успешно создана");
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
         }
     }
@@ -42,9 +42,9 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createNativeQuery(sql).executeUpdate();
             transaction.commit();
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
         }
     }
@@ -58,9 +58,9 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
             System.out.println("Пользователь " + name + " успешно добавлен в базу данных");
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
         }
     }
@@ -77,9 +77,9 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
             System.out.println("Пользователь с ID " + id + " успешно удален");
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
         }
     }
@@ -104,9 +104,9 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
             System.out.println("Таблица users успешно очищена");
         } catch (Exception e) {
-//            if (transaction != null) {
-//                transaction.rollback();
-//            }
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
         }
     }
